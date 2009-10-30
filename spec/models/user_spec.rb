@@ -3,11 +3,23 @@ require 'spec_helper'
 describe User do
   
   describe "新規作成する時" do
-    it "保存できること"
-    it "Userレコードが1つ増えること"
+    context "成功するパターン" do
+      it "保存できること"
+      it "Userレコードが1つ増えること"
+    end
+    context "失敗するパターン" do
+      it "#nameが空なら保存に失敗すること"
+      it "#emailが空なら保存に失敗すること"
+    end
   end
   
   describe "削除する時" do
+    context "成功するパターン" do
+      it "削除できること"
+      it "Userレコードが1つ減ること"
+      it "ユーザーがフォローしていた人の「フォローされている人数」が1つ減ること"
+      it "ユーザーをフォローしていた人の「フォローしている人数」が1つ減ること"
+    end
   end
   
   describe "フォローする時" do
